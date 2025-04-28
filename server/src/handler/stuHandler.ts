@@ -7,7 +7,10 @@ export class StuHandler {
     async getStudentRes(req: Request, res: Response, next: NextFunction) {
         try {
             const estudiantes = await stuController.getStudents();
-            const { usuario, contrasena } = req.body;
+            const { usuario, contrasena } = req.query as { usuario: string, contrasena: string };
+            if (!usuario || !contrasena) {
+                throw new Error('Usuario y contraseña son requeridos');
+            }
             const Restudiante = await stuController.verifyStudent(usuario, contrasena);
             res.json(Restudiante);
         } catch (error) {

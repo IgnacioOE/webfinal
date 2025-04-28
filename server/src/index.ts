@@ -4,7 +4,6 @@ import router from './routes/StuRoute';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 app.use('/',router);
 
 app.listen(PORT, () => {

@@ -13,7 +13,7 @@ export class StuController {
             }
         }
         if (estudiante) {
-            return estudiante.nombre, estudiante.libroFav;
+            return {nombre: estudiante.nombre, libroFav: estudiante.libroFav};
         } else {
             throw new Error("Usuario o contraseña incorrectos");
         }
