@@ -4,6 +4,6 @@ import { StuHandler } from '../handler/stuHandler';
 const router = express.Router();
 const stuHandler = new StuHandler();
 
-router.get('/',stuHandler.getStudentRes.bind(stuHandler));
+router.get('/',(req, res, next) => stuHandler.getStudentRes(req, res, next));
 
 export default router;

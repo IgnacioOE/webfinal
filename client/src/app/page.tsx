@@ -18,11 +18,12 @@ export default function Login() {
     try {
       const response = await fetch(`http://localhost:3000/?usuario=${user}&contrasena=${password}`);
       const data = await response.json();
-      setStudentData(data.studentData);
-      alert(`Bienvenido ${data.nombre}, tu libro favorito es ${data.libroFav}`);
+      setStudentData(data);
+      alert(`¡Bienvenido, ${studentData?.nombre || 'Usuario'}! Disfruta de tu lectura. Tu libro favorito es "${studentData?.libroFav}".`);
+      
     } catch (error) {
       console.error('Error fetching data:', error);
-      alert('Error fetching data');
+      alert('Error al iniciar sesión');
     } finally{
       setLoading(false);
     }
@@ -37,7 +38,7 @@ export default function Login() {
         onChange={(e) => setUser(e.target.value)}
       />
       <input
-        type="password"
+        type="text"
         placeholder="Contraseña"
         value={password || ''}
         onChange={(e) => setPassword(e.target.value)}
