@@ -15,6 +15,7 @@
     "tsconfig": "^7.0.0"
   },
   "devDependencies": {
+    "@types/express": "^5.0.1",
     "typescript": "^5.8.3"
   }
 }
